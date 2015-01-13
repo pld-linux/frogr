@@ -1,21 +1,21 @@
 Summary:	Frogr - Flickr Remote Organizer for GNOME
 Summary(pl.UTF-8):	Frogr - zdalny organizator Flickra dla GNOME
 Name:		frogr
-Version:	0.10
+Version:	0.11
 Release:	1
 License:	GPL v3
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/frogr/0.10/%{name}-%{version}.tar.xz
-# Source0-md5:	6fab072745626dc563528677de53098a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/frogr/0.11/%{name}-%{version}.tar.xz
+# Source0-md5:	730019afea697106f754c3ffd0a0ab37
 URL:		https://wiki.gnome.org/Apps/Frogr
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.32
 BuildRequires:	gstreamer-devel >= 1.0
-BuildRequires:	gtk+3-devel >= 3.4
+BuildRequires:	gtk+3-devel >= 3.12
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	json-glib-devel >= 0.12
 BuildRequires:	libexif-devel >= 1:0.6.14
-BuildRequires:	libgcrypt-devel
+BuildRequires:	libgcrypt-devel >= 1.5.0
 BuildRequires:	libsoup-devel >= 2.34
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	pkgconfig
@@ -25,10 +25,11 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	glib2 >= 1:2.32
-Requires:	gtk+3 >= 3.4
+Requires:	gtk+3 >= 3.12
 Requires:	hicolor-icon-theme
 Requires:	json-glib >= 0.12
 Requires:	libexif >= 1:0.6.14
+Requires:	libgcrypt >= 1.5.0
 Requires:	libsoup >= 2.34
 Requires:	libxml2 >= 1:2.6.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
