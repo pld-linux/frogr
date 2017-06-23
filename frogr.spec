@@ -1,12 +1,12 @@
 Summary:	Frogr - Flickr Remote Organizer for GNOME
 Summary(pl.UTF-8):	Frogr - zdalny organizator Flickra dla GNOME
 Name:		frogr
-Version:	1.2
+Version:	1.3
 Release:	1
 License:	GPL v3
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/frogr/1.2/%{name}-%{version}.tar.xz
-# Source0-md5:	17ee73bb497daca2e16aa5df46e398d1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/frogr/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	53f1214c61d0bc50ac1740b0bde0ae95
 URL:		https://wiki.gnome.org/Apps/Frogr
 BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.44
@@ -72,10 +72,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README THANKS TRANSLATORS
 %attr(755,root,root) %{_bindir}/frogr
 %{_datadir}/frogr
-%{_datadir}/appdata/frogr.appdata.xml
-%{_desktopdir}/frogr.desktop
-%{_iconsdir}/hicolor/*x*/apps/frogr.png
-%{_iconsdir}/hicolor/scalable/apps/frogr.svg
-%{_iconsdir}/hicolor/scalable/apps/frogr-symbolic.svg
+%{_datadir}/appdata/org.gnome.frogr.appdata.xml
+%{_desktopdir}/org.gnome.frogr.desktop
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.frogr.png
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.frogr.svg
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.frogr-symbolic.svg
 %{_pixmapsdir}/frogr.xpm
 %{_mandir}/man1/frogr.1*
