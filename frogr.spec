@@ -1,12 +1,12 @@
 Summary:	Frogr - Flickr Remote Organizer for GNOME
 Summary(pl.UTF-8):	Frogr - zdalny organizator Flickra dla GNOME
 Name:		frogr
-Version:	1.5
+Version:	1.6
 Release:	1
 License:	GPL v3
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/frogr/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	75fb406ca54310d74c7bbbb9ddefaef1
+# Source0-md5:	1a8030fd5e9408c1681c0980f195ed0a
 URL:		https://wiki.gnome.org/Apps/Frogr
 BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.44
