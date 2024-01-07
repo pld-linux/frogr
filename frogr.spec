@@ -1,21 +1,26 @@
+#
+# Conditional build:
+%bcond_without	libsoup2	# libsoup 2.x instead of libsoup3
+
 Summary:	Frogr - Flickr Remote Organizer for GNOME
 Summary(pl.UTF-8):	Frogr - zdalny organizator Flickra dla GNOME
 Name:		frogr
-Version:	1.7
+Version:	1.8.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications/Graphics
-Source0:	https://download.gnome.org/sources/frogr/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	bd17a453389f339c9dfe4d4418ee3965
+Source0:	https://download.gnome.org/sources/frogr/1.8/%{name}-%{version}.tar.xz
+# Source0-md5:	907498b2d9d6c4f5e593fd00416695f4
 URL:		https://wiki.gnome.org/Apps/Frogr
 BuildRequires:	gettext-tools >= 0.19.7
-BuildRequires:	glib2-devel >= 1:2.44
+BuildRequires:	glib2-devel >= 1:2.56
 BuildRequires:	gstreamer-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.16
 BuildRequires:	json-glib-devel >= 1.2
 BuildRequires:	libexif-devel >= 1:0.6.14
 BuildRequires:	libgcrypt-devel >= 1.5.0
-BuildRequires:	libsoup-devel >= 2.34
+%{?with_libsoup2:BuildRequires:	libsoup-devel >= 2.42}
+%{!?with_libsoup2:BuildRequires:	libsoup3-devel >= 3.0}
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	meson
 BuildRequires:	ninja >= 1.5
@@ -27,13 +32,14 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	glib2 >= 1:2.44
+Requires:	glib2 >= 1:2.56
 Requires:	gtk+3 >= 3.16
 Requires:	hicolor-icon-theme
 Requires:	json-glib >= 1.2
 Requires:	libexif >= 1:0.6.14
 Requires:	libgcrypt >= 1.5.0
-Requires:	libsoup >= 2.34
+%{?with_libsoup2:Requires:	libsoup >= 2.42}
+%{!?with_libsoup2:Requires:	libsoup3 >= 3.0}
 Requires:	libxml2 >= 1:2.6.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,10 +55,11 @@ zarządzanie swoimi kontami w serwisie zdjęciowym Flickr.
 %setup -q
 
 # build fails on deprecated glib functions, disable -Werror
-%{__sed} -i -e "/'werror=true'/d" meson.build
+#%{__sed} -i -e "/'werror=true'/d" meson.build
 
 %build
-%meson build
+%meson build \
+	%{?with_libsoup2:-Dwith-libsoup2=true}
 
 %ninja_build -C build
 
