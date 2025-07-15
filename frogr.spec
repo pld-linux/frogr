@@ -58,15 +58,15 @@ zarządzanie swoimi kontami w serwisie zdjęciowym Flickr.
 #%{__sed} -i -e "/'werror=true'/d" meson.build
 
 %build
-%meson build \
+%meson \
 	%{?with_libsoup2:-Dwith-libsoup2=true}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
